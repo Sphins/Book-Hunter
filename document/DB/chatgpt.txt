@@ -1,0 +1,197 @@
+INSERT INTO `book_hunter`.`authors` (`firstname`, `lastname`, `biography`, `picture`, `created_at`) 
+VALUES 
+('John', 'Doe', 'Un auteur prolifique de nombreux genres.', NULL, NOW()),
+('Jane', 'Doe', 'Une auteure renommée de science-fiction.', NULL, NOW()),
+('James', 'Smith', 'Un auteur influent dans le domaine des romans policiers.', NULL, NOW()),
+('Emily', 'Johnson', 'Une étoile montante dans le monde de la littérature fantastique.', NULL, NOW()),
+('Michael', 'Brown', 'Un auteur à succès de romans historiques.', NULL, NOW()),
+('Sarah', 'Jones', 'Connu pour ses romans d'amour captivants.', NULL, NOW()),
+('David', 'Miller', 'Un auteur respecté et critique dans le domaine de la littérature contemporaine.', NULL, NOW()),
+('Jessica', 'Davis', 'Une auteure acclamée par la critique de romans thrillers.', NULL, NOW()),
+('Daniel', 'Garcia', 'Une figure de proue dans le genre du réalisme magique.', NULL, NOW()),
+('Emma', 'Rodriguez', 'Une auteure primée de fiction pour jeunes adultes.', NULL, NOW()),
+('Matthew', 'Martinez', 'Un auteur très apprécié des livres pour enfants.', NULL, NOW()),
+('Olivia', 'Hernandez', 'Une auteure primée pour ses romans de fantasy.', NULL, NOW());
+('Lucas', 'Lopez', 'Un auteur talentueux de romans policiers.', NULL, NOW()),
+('Ava', 'Gonzalez', 'Reconnue pour ses romans de science-fiction captivants.', NULL, NOW()),
+('Ethan', 'Perez', 'Un auteur de renom dans le domaine des romans historiques.', NULL, NOW()),
+('Sophia', 'Wilson', 'Un auteur best-seller de romans d'aventure.', NULL, NOW()),
+('Mason', 'Thomas', 'Connu pour ses intrigues de thriller complexes.', NULL, NOW()),
+('Amelia', 'Anderson', 'Une étoile montante dans le genre de la fantasy.', NULL, NOW()),
+('Alexander', 'Taylor', 'Un auteur primé pour ses romans de réalisme magique.', NULL, NOW()),
+('Isabella', 'Moore', 'Un auteur respecté pour ses romans contemporains.', NULL, NOW()),
+('William', 'Martin', 'Un auteur influent de romans pour jeunes adultes.', NULL, NOW()),
+('Charlotte', 'Jackson', 'Connue pour ses histoires pour enfants captivantes.', NULL, NOW()),
+('Benjamin', 'White', 'Un auteur talentueux dans le genre de la science-fiction.', NULL, NOW()),
+('Abigail', 'Harris', 'Une auteure appréciée pour ses romans d'amour.', NULL, NOW()),
+('Albert', 'Camus', 'Albert Camus était un philosophe, romancier et essayiste français. Il a reçu le prix Nobel de littérature en 1957.', NULL, NOW());
+
+
+-- Now we have 25 authors in total
+
+INSERT INTO `book_hunter`.`categories` (`name`, `created_at`)
+VALUES 
+('Science Fiction', NOW()),
+('Fantaisie', NOW()),
+('Thriller', NOW()),
+('Romance', NOW()),
+('Mystère', NOW()),
+('Fiction Historique', NOW()),
+('Jeune Adulte', NOW()),
+('Enfants', NOW()),
+('Aventure', NOW()),
+('Contemporain', NOW());
+
+
+
+
+
+INSERT INTO `book_hunter`.`books` 
+(`isbn`, `title`, `resume`, `cover`, `publicated_at`, `created_at`, `author_id`, `category_id`) 
+VALUES 
+('978-3-16-148410-0', 'Le voyage fantastique', 'Un voyage fantastique à travers le temps et l''espace.', NULL, '2022-01-01', NOW(), 1, 2),
+('978-1-4028-9462-6', 'La clé du mystère', 'Une enquête palpitante sur une série de crimes non résolus.', NULL, '2022-02-01', NOW(), 2, 5),
+('978-0-7493-1637-7', 'Le dernier des rois', 'La lutte pour le pouvoir dans un royaume lointain.', NULL, '2022-03-01', NOW(), 3, 1),
+('978-0-7897-2359-7', 'La danse des étoiles', 'Un voyage à travers le cosmos à la découverte des étoiles.', NULL, '2022-04-01', NOW(), 4, 1),
+('978-1-56619-909-4', 'L''amour au temps des dragons', 'Une histoire d''amour passionnée dans un monde peuplé de dragons.', NULL, '2022-05-01', NOW(), 5, 4),
+('978-1-84356-028-9', 'Le trône maudit', 'Un roi doit lutter contre une malédiction qui pèse sur son trône.', NULL, '2022-06-01', NOW(), 6, 2),
+('978-0-684-84328-5', 'Les secrets du labyrinthe', 'Un mystère séculaire lié à un labyrinthe ancien.', NULL, '2022-07-01', NOW(), 7, 5),
+('978-0-7336-1143-7', 'Le cantique des étoiles', 'Un groupe d''amis part à la découverte des mystères de l''univers.', NULL, '2022-08-01', NOW(), 8, 1),
+('978-1-84197-916-9', 'La princesse perdue', 'Une princesse disparue et une quête pour la retrouver.', NULL, '2022-09-01', NOW(), 9, 2);
+('978-1-86101-621-9', 'La quête du Graal', 'La quête légendaire du Graal racontée sous un nouvel angle.', NULL, '2023-01-01', NOW(), 10, 9),
+('978-0-596-52068-7', 'Le secret de l''Atlantide', 'Une aventure sous-marine à la découverte de la cité perdue de l''Atlantide.', NULL, '2023-02-01', NOW(), 11, 9),
+('978-0-14-200028-6', 'Le dernier des mohicans', 'Un roman historique sur les derniers membres de la tribu des Mohicans.', NULL, '2023-03-01', NOW(), 12, 6),
+('978-0-7553-8527-0', 'Le jardin secret', 'L''histoire d''une jeune fille qui découvre un jardin secret.', NULL, '2023-04-01', NOW(), 13, 8),
+('978-0-399-15122-1', 'Le magicien d''Oz', 'L''histoire de Dorothy et de ses amis dans le monde magique d''Oz.', NULL, '2023-05-01', NOW(), 14, 2),
+('978-0-395-36341-5', 'Les chroniques de Narnia', 'Une série d''aventures fantastiques dans le monde magique de Narnia.', NULL, '2023-06-01', NOW(), 15, 2),
+('978-0-689-85222-3', 'Harry Potter à l''école des sorciers', 'L''histoire de Harry Potter, un jeune sorcier à l''école de Poudlard.', NULL, '2023-07-01', NOW(), 16, 2),
+('978-0-7434-1896-5', 'Le Seigneur des anneaux', 'L''histoire épique de la lutte pour contrôler l''anneau de pouvoir.', NULL, '2023-08-01', NOW(), 17, 2),
+('978-0-316-01202-2', 'Dune', 'L''histoire d''une planète désertique et de la lutte pour sa ressource précieuse, l''épice.', NULL, '2023-09-01', NOW(), 18, 1),
+('978-0-375-70404-8', '1984', 'Un roman dystopique sur une société totalitaire.', NULL, '2023-10-01', NOW(), 19, 1);
+('978-0-7432-4722-3', 'Brave New World', 'Un aperçu futuriste d''une société dystopique et technologiquement avancée.', NULL, '2023-11-01', NOW(), 20, 1),
+('978-0-553-40081-5', 'Fahrenheit 451', 'Un roman sur un futur où les livres sont interdits et brûlés par les pompiers.', NULL, '2023-12-01', NOW(), 21, 1),
+('978-0-307-26642-4', 'To Kill a Mockingbird', 'Une histoire touchante sur l''innocence et la justice dans le Sud profond.', NULL, '2024-01-01', NOW(), 22, 4),
+('978-0-425-10499-7', 'Moby-Dick', 'L''histoire obsessionnelle du capitaine Ahab pour une grande baleine blanche.', NULL, '2024-02-01', NOW(), 23, 6),
+('978-0-14-029628-1', 'Pride and Prejudice', 'Une histoire d''amour et de préjugés dans l''Angleterre du 19ème siècle.', NULL, '2024-03-01', NOW(), 24, 4),
+('978-0-517-54677-2', 'The Catcher in the Rye', 'L''histoire d''un adolescent perturbé à New York.', NULL, '2024-04-01', NOW(), 25, 3),
+('978-0-312-06956-5', 'Les Misérables', 'L''histoire de Jean Valjean, un ancien forçat, dans le Paris du 19ème siècle.', NULL, '2024-05-01', NOW(), 1, 4),
+('978-0-575-07431-8', 'Don Quixote', 'L''histoire d''un homme qui se croit chevalier dans l''Espagne du 17ème siècle.', NULL, '2024-06-01', NOW(), 2, 4),
+('978-0-375-70270-9', 'Le Petit Prince', 'L''histoire touchante d''un jeune prince qui voyage de planète en planète.', NULL, '2024-07-01', NOW(), 3, 2),
+('978-0-15-601219-5', 'Les Mille et Une Nuits', 'Une collection de contes du Moyen-Orient.', NULL, '2024-08-01', NOW(), 4, 8);
+('978-0-517-46889-2', 'Madame Bovary', 'L''histoire tragique d''une femme insatisfaite dans la province française.', NULL, '2024-09-01', NOW(), 5, 4),
+('978-0-07-020980-7', 'Le Rouge et le Noir', 'Un roman sur l''ambition sociale dans la France post-révolutionnaire.', NULL, '2024-10-01', NOW(), 6, 4),
+('978-0-7434-8773-9', 'L''Étranger', 'L''histoire d''un homme indifférent face à l''absurdité de la vie.', NULL, '2024-11-01', NOW(), 7, 1),
+('978-0-375-70076-7', 'Candide', 'Une satire mordante de l''optimisme aveugle.', NULL, '2024-12-01', NOW(), 8, 1),
+('978-0-14-044091-9', 'Les Trois Mousquetaires', 'Les aventures d''un jeune homme qui cherche à devenir mousquetaire.', NULL, '2025-01-01', NOW(), 9, 7),
+('978-0-375-70625-7', 'L''Île mystérieuse', 'Un groupe de personnes échoue sur une île déserte après un crash de montgolfière.', NULL, '2025-02-01', NOW(), 10, 6),
+('978-0-14-044926-4', 'Germinal', 'Une description déchirante de la vie des mineurs dans le nord de la France.', NULL, '2025-03-01', NOW(), 11, 5),
+('978-0-375-71469-1', 'La Peste', 'L''histoire d''une épidémie de peste dans une ville algérienne.', NULL, '2025-04-01', NOW(), 12, 1),
+('978-0-7432-9245-8', 'Vingt Mille Lieues sous les Mers', 'Les aventures sous-marines du capitaine Nemo et de son équipage.', NULL, '2025-05-01', NOW(), 13, 6),
+('978-0-7435-3609-1', 'La Chute', 'Un avocat parisien devient juge-pénitent à Amsterdam.', NULL, '2025-06-01', NOW(), 14, 1);
+('978-0-517-46889-3', 'Gargantua et Pantagruel', 'La vie et les aventures de deux géants, Gargantua et son fils Pantagruel.', NULL, '2025-07-01', NOW(), 15, 4),
+('978-0-07-020980-8', 'La Comédie Humaine', 'Une série de nouvelles et de romans représentant la société française au 19ème siècle.', NULL, '2025-08-01', NOW(), 16, 4),
+('978-0-7434-8773-0', 'Les Fleurs du Mal', 'Un recueil de poèmes qui rompt avec les conventions de la beauté et de la morale.', NULL, '2025-09-01', NOW(), 17, 3),
+('978-0-375-70076-8', 'Les Misérables', 'Le récit de la vie de Jean Valjean, un ancien forçat qui cherche la rédemption.', NULL, '2025-10-01', NOW(), 18, 4),
+('978-0-14-044091-1', 'Notre-Dame de Paris', 'L''histoire tragique de l''amour non partagé de Quasimodo pour la belle Esmeralda.', NULL, '2025-11-01', NOW(), 19, 4),
+('978-0-375-70625-8', 'Voyage au Centre de la Terre', 'Un professeur de minéralogie et son neveu entreprennent un voyage vers le centre de la Terre.', NULL, '2025-12-01', NOW(), 20, 6),
+('978-0-14-044926-5', 'Le Tour du Monde en 80 Jours', 'Phileas Fogg tente de voyager autour du monde en 80 jours pour gagner un pari.', NULL, '2026-01-01', NOW(), 21, 6),
+('978-0-375-71469-2', 'Eugénie Grandet', 'L''histoire d''une jeune femme qui vit avec son père avare dans la province française.', NULL, '2026-02-01', NOW(), 22, 4),
+('978-0-7432-9245-9', 'Pierre et Jean', 'Un drame familial centré sur deux frères qui sont amoureux de la même femme.', NULL, '2026-03-01', NOW(), 23, 4),
+('978-0-7435-3609-2', 'Bel-Ami', 'La montée au pouvoir d''un jeune homme ambitieux dans le Paris du 19ème siècle.', NULL, '2026-04-01', NOW(), 24, 4);
+('978-0-07-020981-5', 'Les Trois Mousquetaires', 'L''histoire d''un jeune homme qui se rend à Paris pour devenir un mousquetaire.', NULL, '2026-05-01', NOW(), 25, 4),
+('978-0-07-020982-2', '20,000 Lieues sous les mers', 'Un professeur et son serviteur se joignent à une expédition pour chasser un monstre marin.', NULL, '2026-06-01', NOW(), 21, 6),
+('ISBN0025A', 'L’Étranger', 'Publié en 1942, L’Étranger retrace l’histoire d’un homme simple, Meursault, vivant en Algérie française qui va commettre un crime.', NULL, '1942-01-01', NOW(), 14, 4), 
+('ISBN0025B', 'La Peste', 'La Peste est un roman écrit par Albert Camus, publié en 1947, qui raconte la vie des habitants d’Oran frappés par la peste.', NULL, '1947-01-01', NOW(), 25, 4);
+
+
+-- Insérer des utilisateurs avec des noms plus réalistes...
+INSERT INTO `book_hunter`.`users` 
+(`email`, `password`, `pseudo`, `created_at`) 
+VALUES 
+('charles_dubois@example.com', 'password1', 'Charles', NOW()),
+('elise_martin@example.com', 'password2', 'Elise', NOW()),
+('pierre_bernard@example.com', 'password3', 'Pierre', NOW()),
+('sophie_dumont@example.com', 'password4', 'Sophie', NOW()),
+('lucas_moreau@example.com', 'password5', 'Lucas', NOW()),
+('chloe_lemoine@example.com', 'password6', 'Chloe', NOW()),
+('alexandre_garnier@example.com', 'password7', 'Alexandre', NOW()),
+('julie_rodriguez@example.com', 'password8', 'Julie', NOW()),
+('thomas_legrand@example.com', 'password9', 'Thomas', NOW()),
+('emilie_gauthier@example.com', 'password10', 'Emilie', NOW()),
+('nicolas_perez@example.com', 'password11', 'Nicolas', NOW()),
+('camille_blanc@example.com', 'password12', 'Camille', NOW()),
+('maxime_petit@example.com', 'password13', 'Maxime', NOW()),
+('marie_morel@example.com', 'password14', 'Marie', NOW()),
+('adrien_boucher@example.com', 'password15', 'Adrien', NOW()),
+('celine_brun@example.com', 'password16', 'Celine', NOW()),
+('vincent_rousseau@example.com', 'password17', 'Vincent', NOW()),
+('claire_giraud@example.com', 'password18', 'Claire', NOW()),
+('françois_marchand@example.com', 'password19', 'François', NOW()),
+('jessica_lefevre@example.com', 'password20', 'Jessica', NOW());
+-- Fin de l'insertion des utilisateurs...
+
+-- Insérer de nouveaux tags...
+INSERT INTO `book_hunter`.`tags` (`name`, `created_at`)
+VALUES 
+('#Bestseller', NOW()), 
+('#MustRead', NOW()), 
+('#Classic', NOW()), 
+('#AwardWinning', NOW()), 
+('#Thriller', NOW()), 
+('#Romance', NOW()), 
+('#SciFi', NOW()), 
+('#Fantasy', NOW()), 
+('#Biography', NOW()), 
+('#Nonfiction', NOW()), 
+('#YoungAdult', NOW()), 
+('#Historical', NOW()), 
+('#Mystery', NOW()), 
+('#Society', NOW()), 
+('#Inspirational', NOW()), 
+('#Adventure', NOW()), 
+('#Drama', NOW()), 
+('#Comedy', NOW()), 
+('#Crime', NOW()), 
+('#Philosophy', NOW());
+-- Fin de l'insertion des nouveaux tags...
+
+
+-- Insertion des collections des utilisateurs...
+INSERT INTO `book_hunter`.`users_collections` 
+(`user_id`, `book_id`, `created_at`) 
+VALUES 
+(1, RAND()*50+1, NOW()), (2, RAND()*50+1, NOW()), (3, RAND()*50+1, NOW()), (4, RAND()*50+1, NOW()), 
+(5, RAND()*50+1, NOW()), (6, RAND()*50+1, NOW()), (7, RAND()*50+1, NOW()), (8, RAND()*50+1, NOW()), 
+(9, RAND()*50+1, NOW()), (10, RAND()*50+1, NOW()), (11, RAND()*50+1, NOW()), (12, RAND()*50+1, NOW()), 
+(13, RAND()*50+1, NOW()), (14, RAND()*50+1, NOW()), (15, RAND()*50+1, NOW()), (16, RAND()*50+1, NOW()), 
+(17, RAND()*50+1, NOW()), (18, RAND()*50+1, NOW()), (19, RAND()*50+1, NOW()), (20, RAND()*50+1, NOW());
+
+S'il vous plaît noter que cette requête va ajouter un livre aléatoire à la collection de chaque utilisateur. Vous pouvez exécuter cette requête plusieurs fois pour ajouter plus de livres à la collection de chaque utilisateur.
+
+-- Fin de l'insertion des collections...
+
+-- Insérer des notations pour chaque utilisateur...
+INSERT INTO `book_hunter`.`users_notations` 
+(`user_id`, `book_id`, `note`, `created_at`) 
+VALUES 
+(1, RAND()*50+1, RAND()*5, NOW()), (2, RAND()*50+1, RAND()*5, NOW()), (3, RAND()*50+1, RAND()*5, NOW()), 
+(4, RAND()*50+1, RAND()*5, NOW()), (5, RAND()*50+1, RAND()*5, NOW()), (6, RAND()*50+1, RAND()*5, NOW()), 
+(7, RAND()*50+1, RAND()*5, NOW()), (8, RAND()*50+1, RAND()*5, NOW()), (9, RAND()*50+1, RAND()*5, NOW()), 
+(10, RAND()*50+1, RAND()*5, NOW()), (11, RAND()*50+1, RAND()*5, NOW()), (12, RAND()*50+1, RAND()*5, NOW()), 
+(13, RAND()*50+1, RAND()*5, NOW()), (14, RAND()*50+1, RAND()*5, NOW()), (15, RAND()*50+1, RAND()*5, NOW()), 
+(16, RAND()*50+1, RAND()*5, NOW()), (17, RAND()*50+1, RAND()*5, NOW()), (18, RAND()*50+1, RAND()*5, NOW()), 
+(19, RAND()*50+1, RAND()*5, NOW()), (20, RAND()*50+1, RAND()*5, NOW());
+-- Fin de l'insertion des notations...
+
+Cette requête attribue une note aléatoire (de 0 à 5) à un livre aléatoire pour chaque utilisateur. Comme pour la collection, vous pouvez exécuter cette requête plusieurs fois pour ajouter plus de notes.
+
+-- Insérer les associations livre-tag de manière aléatoire...
+INSERT INTO `book_hunter`.`books_has_tags` (`book_id`, `tag_id`)
+VALUES 
+(RAND()*50+1, RAND()*20+1), (RAND()*50+1, RAND()*20+1), (RAND()*50+1, RAND()*20+1), 
+(RAND()*50+1, RAND()*20+1), (RAND()*50+1, RAND()*20+1), (RAND()*50+1, RAND()*20+1), 
+(RAND()*50+1, RAND()*20+1), (RAND()*50+1, RAND()*20+1), (RAND()*50+1, RAND()*20+1), 
+(RAND()*50+1, RAND()*20+1), (RAND()*50+1, RAND()*20+1), (RAND()*50+1, RAND()*20+1);
+-- Fin de l'insertion des associations livre-tag...
+
+Encore une fois, vous pouvez exécuter ces requêtes plusieurs fois pour ajouter plus de tags aux livres ou ajouter plus de livres par
