@@ -36,3 +36,19 @@ function findPopulars(\PDO $connexion, $limitation)
     $rs->execute();
     return $rs->fetchAll(\PDO::FETCH_ASSOC);
 }
+
+function findOneByBookId(\PDO $connexion, int $id)
+{
+    $sql = "SELECT b.*, a.firstname, a.lastname, 
+            AVG(un.note) AS notation, c.name AS category
+            FROM books b
+            LEFT JOIN users_notations un ON b.id = un.book_id
+            JOIN authors a ON a.id = b.author_id
+            JOIN categories c ON c.id = b.category_id
+            WHERE b.id = :id
+    ;";
+    $rs = $connexion->prepare($sql);
+    $rs->bindValue(':id', $id, \PDO::PARAM_INT);
+    $rs->execute();
+    return $rs->fetch(\PDO::FETCH_ASSOC);
+}

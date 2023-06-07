@@ -16,3 +16,16 @@ function indexAction(\PDO $connexion)
     include '../app/views/books/_index.php';
     $content = ob_get_clean();
 }
+
+function showAction(\PDO $connexion, int $id)
+{
+    include_once '../app/models/booksModel.php';
+    $book = BooksModel\findOneByBookId($connexion, $id);
+
+    global $content, $title, $books_title;
+    $title = "Books-show " . $book['title'];
+    $books_title = "Books";
+    ob_start();
+    include '../app/views/books/show.php';
+    $content = ob_get_clean();
+}

@@ -7,7 +7,7 @@
 //     > Créer un router 'books' avec un switch !
 //     > Ceci est le default
 
-if (isset($_GET['books'])) :
+if (isset($_GET['books']) && $_GET['books'] === 'index') :
     include_once '../app/controllers/booksController.php';
     App\Controllers\booksController\indexAction($connexion);
 
@@ -20,9 +20,19 @@ if (isset($_GET['books'])) :
 // 	> Créer un router 'authors' avec un switch !
 // 	> Ceci est le default
 
-elseif (isset($_GET['authors'])) :
+elseif (isset($_GET['authors']) && $_GET['authors'] === 'index') :
     include_once '../app/controllers/authorsController.php';
     App\Controllers\authorsController\indexAction($connexion);
+
+// PATTERN: /?books=show&id=x
+// CTRL: booksController
+// ACTION: show
+// VIEW: books.show
+// 	> Nouveau case dans le switch du router 'books
+
+elseif (isset($_GET['books']) && $_GET['books'] === 'show' && isset($_GET['id'])) :
+    include_once '../app/controllers/booksController.php';
+    App\Controllers\booksController\showAction($connexion, $_GET['id']);
 
 // PATTERN: /
 // 	CTRL: pagesController
