@@ -18,6 +18,6 @@ function showAction(\PDO $connexion, int $id)
     $books_title = $category['name'];
     $title = $category['name'];
     ob_start();
-    include '../app/views/categories/show.php';
+    include '../app/views/books/_index.php';
     $content = ob_get_clean();
 }

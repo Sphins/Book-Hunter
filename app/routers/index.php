@@ -56,6 +56,16 @@ elseif (isset($_GET['categories']) && $_GET['categories'] === 'show' && isset($_
     include_once '../app/controllers/categoriesController.php';
     App\Controllers\CategoriesController\showAction($connexion, $_GET['id']);
 
+// PATTERN: /?tags=show&id=x
+// CTRL: tagsController
+// ACTION: show
+// VIEW: tags.show
+// 	> Nouveau case dans le switch du router 'tags'
+
+elseif (isset($_GET['tags']) && $_GET['tags'] === 'show' && isset($_GET['id'])) :
+    include_once '../app/controllers/tagsController.php';
+    App\Controllers\TagsController\showAction($connexion, $_GET['id']);
+
 // PATTERN: /
 // 	CTRL: pagesController
 // 	ACTION: home

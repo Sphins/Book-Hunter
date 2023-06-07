@@ -1,8 +1,8 @@
 <?php
 
-require_once '../app/models/categoriesModel.php';
+require_once '../app/models/tagsModel.php';
 
-use App\Models\CategoriesModel;
+use App\Models\TagsModel;
 
 ?>
 
@@ -39,10 +39,10 @@ use App\Models\CategoriesModel;
                 <div class="flex flex-wrap">
                     <?php
 
-                    $tags = CategoriesModel\findAllByBookId($connexion, $book['id']);
+                    $tags = tagsModel\findAllByBookId($connexion, $book['id']);
 
                     foreach ($tags as $tag) : ?>
-                        <a href="#" class="bg-gray-500 text-white px-3 py-1 rounded-full text-sm font-semibold mr-2 hover:bg-gray-800 hover:text-white"><?php echo $tag['tags']; ?></a>
+                        <a href="?tags=show&id=<?php echo $tag['id']; ?>" class="bg-gray-500 text-white px-3 py-1 rounded-full text-sm font-semibold mr-2 hover:bg-gray-800 hover:text-white"><?php echo $tag['name']; ?></a>
                     <?php endforeach; ?>
                 </div>
                 <a href="#" class="inline-block mt-4 bg-red-500 hover:bg-red-800 rounded-full px-4 py-2 text-white">

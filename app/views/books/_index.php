@@ -1,8 +1,8 @@
 <?php
 
-require_once '../app/models/categoriesModel.php';
+require_once '../app/models/tagsModel.php';
 
-use App\Models\CategoriesModel;
+use App\Models\TagsModel;
 
 ?>
 
@@ -10,20 +10,18 @@ use App\Models\CategoriesModel;
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
     <?php foreach ($books as $book) : ?>
         <article class="bg-gray-800 rounded-lg overflow-hidden shadow-lg relative">
-            <span class="bg-white text-gray-800 px-2 py-1 rounded-md text-sm font-semibold absolute top-2 left-2">
-                <?php echo $book['category']; ?>
-            </span>
+            <a href="?categories=show&id=<?php echo $book['category_id']; ?>" class="bg-white text-gray-800 px-2 py-1 rounded-md text-sm font-semibold absolute top-2 left-2 hover:bg-gray-500 hover:text-white"><?php echo $book['category']; ?></a>
             <img class="w-full h-48 object-cover" src="https://source.unsplash.com/480x360/?Book" alt="Book Cover" />
             <div class="p-4">
                 <div class="pb-4">
                     <?php
 
-                    $tags = CategoriesModel\findAllByBookId($connexion, $book['id']);
+                    $tags = TagsModel\findAllByBookId($connexion, $book['id']);
 
                     foreach ($tags as $tag) : ?>
-                        <span class="bg-gray-500 text-white px-3 py-1 rounded-full text-sm font-semibold mr-2">
-                            <?php echo $tag['tags']; ?>
-                        </span>
+
+                        <a href="?tags=show&id=<?php echo $tag['id']; ?>" class="bg-gray-500 text-white px-3 py-1 rounded-full text-sm font-semibold mr-2 hover:bg-gray-700 hover:text-white"><?php echo $tag['name']; ?></a>
+
                     <?php endforeach; ?>
 
                 </div>
