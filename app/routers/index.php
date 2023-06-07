@@ -11,6 +11,19 @@ if (isset($_GET['books'])) :
     include_once '../app/controllers/booksController.php';
     App\Controllers\booksController\indexAction($connexion);
 
+
+// PATTERN: /?authors=index
+// CTRL: authorsController
+// ACTION: index
+// VIEW: authors.index
+// 	> Fait appel à authors._index
+// 	> Créer un router 'authors' avec un switch !
+// 	> Ceci est le default
+
+elseif (isset($_GET['authors'])) :
+    include_once '../app/controllers/authorsController.php';
+    App\Controllers\authorsController\indexAction($connexion);
+
 // PATTERN: /
 // 	CTRL: pagesController
 // 	ACTION: home
