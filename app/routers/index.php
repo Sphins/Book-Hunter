@@ -44,7 +44,17 @@ elseif (isset($_GET['books']) && $_GET['books'] === 'show' && isset($_GET['id'])
 
 elseif (isset($_GET['authors']) && $_GET['authors'] === 'show' && isset($_GET['id'])) :
     include_once '../app/controllers/authorsController.php';
-    App\Controllers\authorsController\showAction($connexion, $_GET['id']);
+    App\Controllers\AuthorsController\showAction($connexion, $_GET['id']);
+
+// PATTERN: /?categories=show&id=x
+// CTRL: categoriesController
+// ACTION: show
+// VIEW: categories.show
+// 	> Nouveau case dans le switch du router 'categories'
+
+elseif (isset($_GET['categories']) && $_GET['categories'] === 'show' && isset($_GET['id'])) :
+    include_once '../app/controllers/categoriesController.php';
+    App\Controllers\CategoriesController\showAction($connexion, $_GET['id']);
 
 // PATTERN: /
 // 	CTRL: pagesController

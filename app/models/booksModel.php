@@ -66,3 +66,21 @@ function findAllByAuthorId(\PDO $connexion, $id)
     $rs->execute();
     return $rs->fetchAll(\PDO::FETCH_ASSOC);
 }
+
+function findAllBooksByCategoriesId(\PDO $connexion, $id)
+{
+    $sql = "SELECT b.*, a.firstname, a.lastname, a.id as authors_id,
+            AVG(un.note) AS notation, c.name AS category
+            FROM books b
+            LEFT JOIN users_notations un ON b.id = un.book_id
+            JOIN authors a ON a.id = b.author_id
+            JOIN categories c ON c.id = b.category_id
+            WHERE category_id = :id
+            GROUP BY b.id
+            ORDER BY b.title ASC
+            ;";
+    $rs = $connexion->prepare($sql);
+    $rs->bindValue(':id', $id, \PDO::PARAM_INT);
+    $rs->execute();
+    return $rs->fetchAll(\PDO::FETCH_ASSOC);
+}

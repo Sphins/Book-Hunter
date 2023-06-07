@@ -27,7 +27,7 @@ use App\Models\CategoriesModel;
                                                         echo $formattedDate; ?>
 
                 </p>
-                <p class="text-gray-300 mb-4">Genre: <?php echo $book['category']; ?></p>
+                <p class="text-gray-300 mb-4">Genre: <a href="?categories=show&id=<?php echo $book['category_id']; ?>" class="hover:text-red-500 underline font-medium"><?php echo $book['category']; ?></a></p>
                 <div class="flex items-center mb-4">
                     <span class="text-yellow-500 mr-1">
                         <i class="fas fa-star"></i>
