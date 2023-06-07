@@ -2,7 +2,7 @@
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
     <?php foreach ($authors as $author) : ?>
         <article class="bg-gray-800 rounded-lg overflow-hidden shadow-lg">
-            <img class="w-full h-48 object-cover" src="https://source.unsplash.com/480x360/?movie" alt="Movie Cover" />
+            <img class="w-full h-48 object-cover" src="https://source.unsplash.com/480x360/?authors" alt="auteur" />
             <div class="p-4">
                 <h3 class="text-xl font-bold mb-2"><?php echo $author['firstname']; ?> <?php echo $author['lastname']; ?></h3>
                 <div class="flex items-center mb-2">

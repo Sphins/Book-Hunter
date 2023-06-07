@@ -9,6 +9,7 @@ function findAll(\PDO $connexion)
             LEFT JOIN books b ON b.author_id = a.id
             LEFT JOIN users_notations un ON un.book_id = b.id
             GROUP BY a.id
+            ORDER BY a.firstname ASC, a.lastname ASC
             ;";
     $rs = $connexion->prepare($sql);
     $rs->execute();

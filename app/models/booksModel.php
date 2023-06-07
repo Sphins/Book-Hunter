@@ -12,6 +12,7 @@ function findAll(\PDO $connexion)
             JOIN authors a ON a.id = b.author_id
             JOIN categories c ON c.id = b.category_id
             GROUP BY b.id
+            ORDER BY b.title ASC
             ;";
     $rs = $connexion->prepare($sql);
     $rs->execute();
@@ -58,6 +59,7 @@ function findAllByAuthorId(\PDO $connexion, $id)
     $sql = "SELECT b.*
             FROM books b
             WHERE b.author_id = :id
+            ORDER BY b.title ASC
             ;";
     $rs = $connexion->prepare($sql);
     $rs->bindValue(':id', $id, \PDO::PARAM_INT);
