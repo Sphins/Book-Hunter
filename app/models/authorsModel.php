@@ -2,7 +2,7 @@
 
 namespace App\Models\AuthorsModel;
 
-function findAll(\PDO $connexion, $limitation)
+function findPopulars(\PDO $connexion, $limitation)
 {
     $sql = "SELECT a.*, AVG(n.note) AS notation
             FROM authors a

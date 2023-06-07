@@ -11,10 +11,10 @@ function homeAction(\PDO $connexion)
     $limitation = 3;
 
     include_once '../app/models/booksModel.php';
-    $books = BooksModel\findAll($connexion, $limitation);
+    $books = BooksModel\findPopulars($connexion, $limitation);
 
     include_once '../app/models/authorsModel.php';
-    $authors = AuthorsModel\findAll($connexion, $limitation);
+    $authors = AuthorsModel\findPopulars($connexion, $limitation);
 
     global $content, $title, $books_title, $authors_title;
     $title = "Acceuil";

@@ -1,5 +1,7 @@
 <?php
 
+require_once '../app/models/categoriesModel.php';
+
 use App\Models\CategoriesModel;
 
 ?>
