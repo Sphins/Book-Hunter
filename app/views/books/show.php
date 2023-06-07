@@ -16,7 +16,7 @@ use App\Models\CategoriesModel;
                 <h2 class="font-bold text-2xl mb-2"><?php echo $book['title']; ?></h2>
                 <p class="text-gray-300 mb-4">
                     Par
-                    <a href="author.html" class="hover:text-red-500 underline font-medium"><?php echo $book['firstname']; ?> <?php echo $book['lastname']; ?></a>
+                    <a href="?authors=show&id=<?php echo $book['authors_id']; ?>" class="hover:text-red-500 underline font-medium"><?php echo $book['firstname']; ?> <?php echo $book['lastname']; ?></a>
                 </p>
                 <p class="text-gray-300 mb-4">Sortie le <?php
 

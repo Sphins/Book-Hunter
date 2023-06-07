@@ -34,6 +34,18 @@ elseif (isset($_GET['books']) && $_GET['books'] === 'show' && isset($_GET['id'])
     include_once '../app/controllers/booksController.php';
     App\Controllers\booksController\showAction($connexion, $_GET['id']);
 
+// PATTERN: /?authors=show&id=x
+// CTRL: authorsController
+// ACTION: show
+// VIEW: authors.show
+// 	> Nouveau case dans le switch du router 'authors'
+// 	Faire appel à la fonction findAllByAuthorId()
+// 	et à la vue: books._indexByAuthorId (ou directement faire un foreach sur le résultat de la fonction)
+
+elseif (isset($_GET['authors']) && $_GET['authors'] === 'show' && isset($_GET['id'])) :
+    include_once '../app/controllers/authorsController.php';
+    App\Controllers\authorsController\showAction($connexion, $_GET['id']);
+
 // PATTERN: /
 // 	CTRL: pagesController
 // 	ACTION: home

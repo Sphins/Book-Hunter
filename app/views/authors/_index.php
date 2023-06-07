@@ -13,7 +13,7 @@
                 <p class="text-gray-400">
                     <?php echo $author['biography']; ?>
                 </p>
-                <a href="author.html" class="inline-block mt-4 bg-red-500 hover:bg-red-800 rounded-full px-4 py-2 text-white">
+                <a href="?authors=show&id=<?php echo $author['id']; ?>" class="inline-block mt-4 bg-red-500 hover:bg-red-800 rounded-full px-4 py-2 text-white">
                     More details
                 </a>
             </div>
