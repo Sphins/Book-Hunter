@@ -2,7 +2,7 @@
 
 namespace App\Models\AuthorsModel;
 
-function findAll(\PDO $connexion)
+function findAll(\PDO $connexion, int $limit = 6, int $offset = 0)
 {
     $sql = "SELECT a.*, AVG(un.note) AS notation
             FROM authors a
@@ -10,8 +10,12 @@ function findAll(\PDO $connexion)
             LEFT JOIN users_notations un ON un.book_id = b.id
             GROUP BY a.id
             ORDER BY a.firstname ASC, a.lastname ASC
+            LIMIT :limit
+            OFFSET :offset
             ;";
     $rs = $connexion->prepare($sql);
+    $rs->bindValue(':limit', $limit, \PDO::PARAM_INT);
+    $rs->bindValue(':offset', $offset, \PDO::PARAM_INT);
     $rs->execute();
     return $rs->fetchAll(\PDO::FETCH_ASSOC);
 }

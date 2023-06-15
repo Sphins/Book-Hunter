@@ -1,4 +1,18 @@
 <?php
+
+// Routes AJAX ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+if (isset($_GET['ajax']) && $_GET['ajax'] === 'loadMoreBooks') :
+    include_once '../app/controllers/booksController.php';
+    APP\Controllers\BooksController\loadMoreAction($connexion, $_GET['offSet']);
+
+
+elseif (isset($_GET['ajax']) && $_GET['ajax'] === 'loadMoreAuthors') :
+    include_once '../app/controllers/authorsController.php';
+    APP\Controllers\AuthorsController\loadMoreAction($connexion, $_GET['offSet']);
+
+// Routes NORMAL ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 // PATTERN: /?books=index
 // CTRL: booksController
 // ACTION: index
@@ -7,7 +21,7 @@
 //     > Créer un router 'books' avec un switch !
 //     > Ceci est le default
 
-if (isset($_GET['books']) && $_GET['books'] === 'index') :
+elseif (isset($_GET['books']) && $_GET['books'] === 'index') :
     include_once '../app/controllers/booksController.php';
     App\Controllers\booksController\indexAction($connexion);
 
@@ -65,6 +79,16 @@ elseif (isset($_GET['categories']) && $_GET['categories'] === 'show' && isset($_
 elseif (isset($_GET['tags']) && $_GET['tags'] === 'show' && isset($_GET['id'])) :
     include_once '../app/controllers/tagsController.php';
     App\Controllers\TagsController\showAction($connexion, $_GET['id']);
+
+// PATTERN: /?collections=create
+// CTRL: collectionsController
+// ACTION: create
+// REDIRECT: books.show avec un message dans la session	
+// 	> Le livre a bien été ajouté à votre collection
+
+elseif (isset($_GET['collections']) && $_GET['collection'] === 'create') :
+    include_once '../app/controllers/collectionsController.php';
+    App\Controllers\CollectionsController\createAction($connexion);
 
 // PATTERN: /
 // 	CTRL: pagesController

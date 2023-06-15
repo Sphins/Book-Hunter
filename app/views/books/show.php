@@ -45,7 +45,7 @@ use App\Models\TagsModel;
                         <a href="?tags=show&id=<?php echo $tag['id']; ?>" class="bg-gray-500 text-white px-3 py-1 rounded-full text-sm font-semibold mr-2 hover:bg-gray-800 hover:text-white"><?php echo $tag['name']; ?></a>
                     <?php endforeach; ?>
                 </div>
-                <a href="#" class="inline-block mt-4 bg-red-500 hover:bg-red-800 rounded-full px-4 py-2 text-white">
+                <a href="?collections=create" class="inline-block mt-4 bg-red-500 hover:bg-red-800 rounded-full px-4 py-2 text-white">
                     Ajouter à ma collection
                 </a>
             </div>

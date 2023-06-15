@@ -7,4 +7,8 @@ require_once '../core/init.php';
 require_once '../app/routers/index.php';
 
 // 3. Chargement du template
-require_once '../app/views/template/index.php';
+
+if (!isset($_GET['ajax'])) {
+    // La requête n'est pas une requête AJAX
+    require_once '../app/views/template/index.php';
+}

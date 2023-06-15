@@ -3,7 +3,7 @@
 namespace App\Models\BooksModel;
 
 
-function findAll(\PDO $connexion)
+function findAll(\PDO $connexion, int $limit = 6, int $offset = 0)
 {
     $sql = "SELECT b.*, a.firstname, a.lastname, a.id as authors_id,
             AVG(un.note) AS notation, c.name AS category
@@ -13,12 +13,15 @@ function findAll(\PDO $connexion)
             JOIN categories c ON c.id = b.category_id
             GROUP BY b.id
             ORDER BY b.title ASC
+            LIMIT :limit
+            OFFSET :offset
             ;";
     $rs = $connexion->prepare($sql);
+    $rs->bindValue(':limit', $limit, \PDO::PARAM_INT);
+    $rs->bindValue(':offset', $offset, \PDO::PARAM_INT);
     $rs->execute();
     return $rs->fetchAll(\PDO::FETCH_ASSOC);
 }
-
 
 function findPopulars(\PDO $connexion, $limitation)
 {
