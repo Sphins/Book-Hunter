@@ -1,13 +1,13 @@
 <?php
 
-require_once '../app/models/tagsModel.php';
+include_once '../app/models/tagsModel.php';
 
 use App\Models\TagsModel;
 
 foreach ($books as $book) : ?>
     <article class="bg-gray-800 rounded-lg overflow-hidden shadow-lg relative">
         <a href="?categories=show&id=<?php echo $book['category_id']; ?>" class="bg-white text-gray-800 px-2 py-1 rounded-md text-sm font-semibold absolute top-2 left-2 hover:bg-gray-500 hover:text-white"><?php echo $book['category']; ?></a>
-        <img class="w-full h-48 object-cover" src="https://source.unsplash.com/480x360/?Book" alt="Book Cover" />
+        <img class="w-full h-48 object-cover" src="<?php echo $book['cover']; ?>" alt="Book Cover" />
         <div class="p-4">
             <div class="pb-4">
                 <?php
@@ -19,6 +19,9 @@ foreach ($books as $book) : ?>
                     <a href="?tags=show&id=<?php echo $tag['id']; ?>" class="bg-gray-500 text-white px-3 py-1 rounded-full text-sm font-semibold mr-2 hover:bg-gray-700 hover:text-white"><?php echo $tag['name']; ?></a>
 
                 <?php endforeach; ?>
+                <span class="py-1">
+                    &nbsp;
+                </span>
 
             </div>
             <h3 class="text-xl font-bold"><?php echo $book['title']; ?></h3>
