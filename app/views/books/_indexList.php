@@ -6,7 +6,7 @@ use App\Models\TagsModel;
 
 foreach ($books as $book) : ?>
     <article class="bg-gray-800 rounded-lg overflow-hidden shadow-lg relative">
-        <a href="?categories=show&id=<?php echo $book['category_id']; ?>" class="bg-white text-gray-800 px-2 py-1 rounded-md text-sm font-semibold absolute top-2 left-2 hover:bg-gray-500 hover:text-white"><?php echo $book['category']; ?></a>
+        <a href="categories/<?php echo $book['category_id']; ?>/<?php echo Core\Tools\slugify($book['categorie_name']); ?>" class="bg-white text-gray-800 px-2 py-1 rounded-md text-sm font-semibold absolute top-2 left-2 hover:bg-gray-500 hover:text-white"><?php echo $book['categorie_name']; ?></a>
         <img class="w-full h-48 object-cover" src="<?php echo $book['cover']; ?>" alt="Book Cover" />
         <div class="p-4">
             <div class="pb-4">
@@ -16,7 +16,7 @@ foreach ($books as $book) : ?>
 
                 foreach ($tags as $tag) : ?>
 
-                    <a href="?tags=show&id=<?php echo $tag['id']; ?>" class="bg-gray-500 text-white px-3 py-1 rounded-full text-sm font-semibold mr-2 hover:bg-gray-700 hover:text-white"><?php echo $tag['name']; ?></a>
+                    <a href="tags/<?php echo $tag['id']; ?>/<?php echo Core\Tools\slugify($tag['name']); ?>" class="bg-gray-500 text-white px-3 py-1 rounded-full text-sm font-semibold mr-2 hover:bg-gray-700 hover:text-white"><?php echo $tag['name']; ?></a>
 
                 <?php endforeach; ?>
                 <span class="py-1">
@@ -39,7 +39,7 @@ foreach ($books as $book) : ?>
                 <?php echo $book['resume']; ?>
             </p>
 
-            <a href="?books=show&id=<?php echo $book['id']; ?>" class="inline-block mt-4 bg-red-500 hover:bg-red-800 rounded-full px-4 py-2 text-white">
+            <a href="books/<?php echo $book['id']; ?>/<?php echo Core\Tools\slugify($book['title']) ?>" class="inline-block mt-4 bg-red-500 hover:bg-red-800 rounded-full px-4 py-2 text-white">
                 More details
             </a>
         </div>

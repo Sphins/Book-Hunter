@@ -3,7 +3,7 @@
         <div class="container mx-auto px-4">
             <div class="flex justify-between items-center py-4">
                 <div class="flex items-center">
-                    <a class="text-white font-bold text-xl flex items-center" href="?home">
+                    <a class="text-white font-bold text-xl flex items-center" href="">
                         <svg viewBox="0 0 24 24" class="w-8 h-8 mr-2">
                             <path fill="#ffffff" d="M12,0C5.383,0,0,5.383,0,12s5.383,12,12,12s12-5.383,12-12S18.617,0,12,0z M6.618,6.618
                     C7.803,5.432,9.341,4.756,11,4.756s3.197,0.676,4.382,1.862c2.416,2.416,2.416,6.347,0,8.763c-1.186,1.186-2.724,1.862-4.382,1.862
@@ -23,14 +23,14 @@
                     </button>
                 </div>
                 <div class="hidden md:flex items-center">
-                    <a class="text-gray-300 hover:text-white px-3 py-2" href="?books=index">Books</a>
-                    <a class="text-gray-300 hover:text-white px-3 py-2" href="?authors=index">Authors</a>
+                    <a class="text-gray-300 hover:text-white px-3 py-2" href="books">Books</a>
+                    <a class="text-gray-300 hover:text-white px-3 py-2" href="authors">Authors</a>
                 </div>
             </div>
         </div>
         <div x-show="open" class="md:hidden">
-            <a class="block text-gray-300 hover:text-white px-3 py-2" href="?books=index">Books</a>
-            <a class="block text-gray-300 hover:text-white px-3 py-2" href="?authors=index">Authors</a>
+            <a class="block text-gray-300 hover:text-white px-3 py-2" href="books">Books</a>
+            <a class="block text-gray-300 hover:text-white px-3 py-2" href="authors">Authors</a>
         </div>
     </nav>
 </div>

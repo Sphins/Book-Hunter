@@ -13,7 +13,7 @@ use App\Models\CategoriesModel;
 
     foreach ($categories as $category) : ?>
         <li>
-            <a class="text-gray-300 hover:text-white" href="?categories=show&id=<?php echo $category['id']; ?>"><?php echo $category['name']; ?></a>
+            <a class="text-gray-300 hover:text-white" href="categories/<?php echo $category['id']; ?>/<?php echo Core\Tools\slugify($category['name']); ?>"><?php echo $category['name']; ?></a>
         </li>
     <?php endforeach; ?>
 </ul>

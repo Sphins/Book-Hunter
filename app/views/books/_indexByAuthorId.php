@@ -13,7 +13,7 @@ use App\Models\BooksModel;
 
     foreach ($books as $book) : ?>
         <li>
-            <a href="?books=show&id=<?php echo $book['id']; ?>" class="hover:text-red-500 underline font-medium"><?php echo $book['title']; ?></a>
+            <a href="books/<?php echo $book['id']; ?>/<?php echo Core\Tools\slugify($book['title']) ?>" class="hover:text-red-500 underline font-medium"><?php echo $book['title']; ?></a>
         </li>
     <?php endforeach; ?>
 </ul>

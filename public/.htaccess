@@ -1,0 +1,45 @@
+RewriteEngine on
+
+#Route liste des books
+#pattern : /books
+#Target: /?books=index
+
+RewriteRule ^books$ index.php/?books=index [L]
+
+#route details d un books
+#Pattern: /books/{id}/{slug}
+#Target : /?books=show&id=x
+
+RewriteRule ^books/([1-9][0-9]*)/([a-z0-9][a-z0-9\-]*)*[a-z0-9]$ index.php/?books=show&id=$1 [L]
+
+#Route liste des authors
+#pattern : /authors
+#Target: /?authors=index
+
+RewriteRule ^authors$ index.php/?authors=index [L]
+
+#route details d un authors
+#Pattern: /authors/{id}/{slug}
+#Target : /?authors=show&id=x
+
+RewriteRule ^authors/([1-9][0-9]*)/([a-z0-9][a-z0-9\-]*)*[a-z0-9]$ index.php/?authors=show&id=$1 [L]
+
+#route details d une categories
+#Pattern: /categories/{id}
+#Target : /?categories=show&id=x
+
+RewriteRule ^categories/([1-9][0-9]*)/([a-z0-9][a-z0-9\-]*)*[a-z0-9]$ index.php/?categories=show&id=$1 [L]
+
+#route details d un tags
+#Pattern: /tags/{id}
+#Target : /?tags=show&id=x
+
+RewriteRule ^tags/([1-9][0-9]*)/([a-z0-9][a-z0-9\-]*)*[a-z0-9]$ index.php/?tags=show&id=$1 [L]
+
+#route defaut
+#Pattern: /
+#Target : /
+
+
+
+RewriteCond %{REQUEST_URI} !\.(js|css|jpg|gif|zip|png|pdf)$ [NC]

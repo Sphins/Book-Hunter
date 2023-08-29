@@ -16,7 +16,7 @@ use App\Models\TagsModel;
                 <h2 class="font-bold text-2xl mb-2"><?php echo $book['title']; ?></h2>
                 <p class="text-gray-300 mb-4">
                     Par
-                    <a href="?authors=show&id=<?php echo $book['authors_id']; ?>" class="hover:text-red-500 underline font-medium"><?php echo $book['firstname']; ?> <?php echo $book['lastname']; ?></a>
+                    <a href="authors/<?php echo $book['authors_id']; ?>/<?php echo Core\Tools\slugify($book['firstname']) ?>-<?php echo Core\Tools\slugify($book['lastname']) ?>" class="hover:text-red-500 underline font-medium"><?php echo $book['firstname']; ?> <?php echo $book['lastname']; ?></a>
                 </p>
                 <p class="text-gray-300 mb-4">Sortie le <?php
 
@@ -27,7 +27,7 @@ use App\Models\TagsModel;
                                                         echo $formattedDate; ?>
 
                 </p>
-                <p class="text-gray-300 mb-4">Genre: <a href="?categories=show&id=<?php echo $book['category_id']; ?>" class="hover:text-red-500 underline font-medium"><?php echo $book['category']; ?></a></p>
+                <p class="text-gray-300 mb-4">Genre: <a href="categories/<?php echo $book['categorie_id']; ?>/<?php echo Core\Tools\slugify($book['categorie_name']); ?>" class="hover:text-red-500 underline font-medium"><?php echo $book['category']; ?></a></p>
                 <div class="flex items-center mb-4">
                     <span class="text-yellow-500 mr-1">
                         <i class="fas fa-star"></i>
@@ -42,7 +42,7 @@ use App\Models\TagsModel;
                     $tags = tagsModel\findAllByBookId($connexion, $book['id']);
 
                     foreach ($tags as $tag) : ?>
-                        <a href="?tags=show&id=<?php echo $tag['id']; ?>" class="bg-gray-500 text-white px-3 py-1 rounded-full text-sm font-semibold mr-2 hover:bg-gray-800 hover:text-white"><?php echo $tag['name']; ?></a>
+                        <a href="tags/<?php echo $tag['id']; ?>/<?php echo Core\Tools\slugify($tag['name']); ?>" class="bg-gray-500 text-white px-3 py-1 rounded-full text-sm font-semibold mr-2 hover:bg-gray-800 hover:text-white"><?php echo $tag['name']; ?></a>
                     <?php endforeach; ?>
                 </div>
                 <a href="?collections=create" class="inline-block mt-4 bg-red-500 hover:bg-red-800 rounded-full px-4 py-2 text-white">

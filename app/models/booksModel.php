@@ -6,7 +6,7 @@ namespace App\Models\BooksModel;
 function findAll(\PDO $connexion, int $limit = 6, int $offset = 0)
 {
     $sql = "SELECT b.*, a.firstname, a.lastname, a.id as authors_id,
-            AVG(un.note) AS notation, c.name AS category
+            AVG(un.note) AS notation, c.name AS categorie_name
             FROM books b
             LEFT JOIN users_notations un ON b.id = un.book_id
             JOIN authors a ON a.id = b.author_id
@@ -26,7 +26,7 @@ function findAll(\PDO $connexion, int $limit = 6, int $offset = 0)
 function findPopulars(\PDO $connexion, $limitation)
 {
     $sql = "SELECT b.*, a.firstname, a.lastname,a.id as authors_id, 
-            AVG(un.note) AS notation, c.name AS category
+            AVG(un.note) AS notation, c.name AS categorie_name
             FROM users_notations un
             JOIN books b ON b.id = un.book_id
             JOIN authors a ON a.id = b.author_id
@@ -44,6 +44,7 @@ function findPopulars(\PDO $connexion, $limitation)
 function findOneByBookId(\PDO $connexion, int $id)
 {
     $sql = "SELECT b.*, a.firstname, a.lastname, a.id as authors_id, 
+            c.id as categorie_id, c.name as categorie_name,
             AVG(un.note) AS notation, c.name AS category
             FROM books b
             LEFT JOIN users_notations un ON b.id = un.book_id
@@ -73,7 +74,7 @@ function findAllByAuthorId(\PDO $connexion, $id)
 function findAllBooksByCategoriesId(\PDO $connexion, $id)
 {
     $sql = "SELECT b.*, a.firstname, a.lastname, a.id as authors_id,
-            AVG(un.note) AS notation, c.name AS category
+            AVG(un.note) AS notation, c.name AS categorie_name
             FROM books b
             LEFT JOIN users_notations un ON b.id = un.book_id
             JOIN authors a ON a.id = b.author_id
@@ -91,7 +92,7 @@ function findAllBooksByCategoriesId(\PDO $connexion, $id)
 function findAllBooksByTagsId(\PDO $connexion, $id)
 {
     $sql = "SELECT b.*, a.firstname, a.lastname, a.id AS authors_id,
-            AVG(un.note) AS notation, c.name AS category
+            AVG(un.note) AS notation, c.name AS categorie_name
             FROM books b
             LEFT JOIN users_notations un ON b.id = un.book_id
             JOIN authors a ON a.id = b.author_id

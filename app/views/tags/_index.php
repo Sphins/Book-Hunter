@@ -13,7 +13,7 @@ use App\Models\TagsModel;
 
     foreach ($tags as $tag) : ?>
         <li>
-            <a class="text-gray-300 hover:text-white" href="?tags=show&id=<?php echo $tag['id']; ?>"><?php echo $tag['name']; ?></a>
+            <a class="text-gray-300 hover:text-white" href="tags/<?php echo $tag['id']; ?>/<?php echo Core\Tools\slugify($tag['name']); ?>"><?php echo $tag['name']; ?></a>
         </li>
     <?php endforeach; ?>
 </ul>
