@@ -36,10 +36,16 @@ RewriteRule ^categories/([1-9][0-9]*)/([a-z0-9][a-z0-9\-]*)*[a-z0-9]$ index.php/
 
 RewriteRule ^tags/([1-9][0-9]*)/([a-z0-9][a-z0-9\-]*)*[a-z0-9]$ index.php/?tags=show&id=$1 [L]
 
+ # -------------------------------------------------
+# API ENDPOINTS
+# -------------------------------------------------
+# LISTE DES BOOKS
+# PATTERN: /api/books
+# TARGET: ?api&books=index
+RewriteRule ^api/books$ index.php?api=truc&books=index [L]
+
 #route defaut
 #Pattern: /
 #Target : /
-
-
 
 RewriteCond %{REQUEST_URI} !\.(js|css|jpg|gif|zip|png|pdf)$ [NC]

@@ -39,3 +39,11 @@ function loadMoreAction(\PDO $connexion, int $offset)
 
     include '../app/views/books/_indexList.php';
 }
+
+// API ACTIONS
+function api_indexAction(\PDO $connexion)
+{
+    include_once '../app/models/booksModel.php';
+    $books = BooksModel\findAll($connexion);
+    return json_encode($books);
+}
