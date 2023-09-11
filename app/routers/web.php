@@ -35,6 +35,10 @@ elseif (isset($_GET['tags'])) :
 elseif (isset($_GET['ajax'])) :
     include_once '../app/routers/ajax.php';
 
+
+elseif (isset($_GET['users'])) :
+    include_once '../app/routers/users.php';
+
 // PATTERN: /
 // CTRL: pagesController
 // ACTION: home

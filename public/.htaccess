@@ -36,12 +36,25 @@ RewriteRule ^categories/([1-9][0-9]*)/([a-z0-9][a-z0-9\-]*)*[a-z0-9]$ index.php/
 
 RewriteRule ^tags/([1-9][0-9]*)/([a-z0-9][a-z0-9\-]*)*[a-z0-9]$ index.php/?tags=show&id=$1 [L]
 
- # -------------------------------------------------
+#route usersLogin
+#Pattern: users/login
+#Target : /?users=login
+
+RewriteRule ^users/login$ index.php/?users=login [L]
+
+#route userssubmit
+#Pattern: users/submit
+#Target : /?users=submit
+
+RewriteRule ^users/submit$ index.php/?users=submit [L]
+
+# -------------------------------------------------
 # API ENDPOINTS
 # -------------------------------------------------
 # LISTE DES BOOKS
 # PATTERN: /api/books
 # TARGET: ?api&books=index
+
 RewriteRule ^api/books$ index.php?api=truc&books=index [L]
 
 #route defaut
