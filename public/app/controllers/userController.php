@@ -19,8 +19,9 @@ function submitAction(\PDO $connexion, array $data = null)
     $user = UsersModel\findOneByPseudoPsw($connexion, $data);
 
     if ($user) :
-        header('location: ');
+        $_SESSION['user'] = $user;
+        header('location: http://localhost/scripts_serveurs/Book-Hunter/admin/www/');
     else :
-        header('location: http://localhost/scripts_serveurs/Book-Hunter/public/users/login');
+        header('location: http://localhost/scripts_serveurs/Book-Hunter/public/www/users/login');
     endif;
 }

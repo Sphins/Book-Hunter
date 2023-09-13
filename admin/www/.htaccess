@@ -1,0 +1,15 @@
+RewriteEngine on
+
+#Route de users
+
+#LOGOUT
+#Pattern: users/logout
+#Target : index.php/?users=logout
+
+rewriteRule ^users/logout$ index.php/?users=logout [L]
+
+#route defaut
+#Pattern: /
+#Target : /
+
+RewriteCond %{REQUEST_URI} !\.(js|css|jpg|gif|zip|png|pdf)$ [NC]

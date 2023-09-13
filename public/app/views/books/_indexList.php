@@ -31,7 +31,7 @@ foreach ($books as $book) : ?>
                     <i class="fas fa-star"></i>
                 </span>
                 <span><?php
-                        $notes = number_format($book['notation'], 2);
+                        $notes = isset($book['notation']) && $book['notation'] !== null ? number_format($book['notation'], 2) : "0.00";
                         echo $notes; ?></span>
             </div>
 
