@@ -1,12 +1,19 @@
 RewriteEngine on
 
-#Route de users
+#Route de users =============================================
+
+
+
+
 
 #LOGOUT
 #Pattern: users/logout
 #Target : index.php/?users=logout
 
 rewriteRule ^users/logout$ index.php/?users=logout [L]
+
+#Route par defaut =============================================
+
 
 #route defaut
 #Pattern: /

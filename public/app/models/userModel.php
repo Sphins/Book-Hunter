@@ -5,13 +5,20 @@ namespace App\Models\UsersModel;
 function findOneByPseudoPsw(\PDO $connexion, array $data = null)
 {
     $sql = "SELECT * 
-    FROM users u
-    where u.pseudo = :pseudo
-    AND u.password = :mdp;
+    FROM users 
+    where pseudo = :pseudo;
     ";
     $rs = $connexion->prepare($sql);
     $rs->bindValue(':pseudo', $data['pseudo'], \PDO::PARAM_STR);
-    $rs->bindValue(':mdp', $data['mdp'], \PDO::PARAM_STR);
     $rs->execute();
     return $rs->fetch(\PDO::FETCH_ASSOC);
+}
+
+function updateUserPassword(\PDO $connexion, $userId, $newHashedPassword)
+{
+    $query = "UPDATE users SET password = :password WHERE id = :id";
+    $stmt = $connexion->prepare($query);
+    $stmt->bindParam(':password', $newHashedPassword);
+    $stmt->bindParam(':id', $userId);
+    $stmt->execute();
 }
