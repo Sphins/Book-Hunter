@@ -18,5 +18,5 @@ function logoutAction()
     //je tue la variable de session user
     unset($_SESSION['user']);
     //je redirige vers le site public
-    header('location: http://localhost/scripts_serveurs/Book-Hunter/public/www/');
+    header('location: ' . PUBLIC_ROOT);
 }

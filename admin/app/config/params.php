@@ -1,5 +1,18 @@
 <?php
 
+//initialisation des zones dynamiques
+$title = '';
+$content = '';
+
+//dossiers
+
+define('PUBLIC_FOLDER', 'public');
+define('ADMIN_FOLDER', 'admin');
+define('DISPATCHER_NAME', 'index.php');
+
+//nom back office
+define('PROJECT_NAME', strtoupper('Book hunter'));
+
 // Paramètres de connexion à la DB
 define('DB_HOST', '127.0.0.1:3306');
 define('DB_NAME', 'book_hunter');

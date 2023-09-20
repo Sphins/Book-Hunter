@@ -30,4 +30,4 @@ foreach ($users as $user) {
         ->execute([$hashedPassword, $user['id']]);
 }
 
-echo "All passwords have been hashed and updated.";
+echo "tous les mdp on ete crypter.";

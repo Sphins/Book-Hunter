@@ -2,7 +2,7 @@
 
 namespace App\Models\UsersModel;
 
-function findOneByPseudoPsw(\PDO $connexion, array $data = null)
+function findOneByPseudo(\PDO $connexion, array $data = null)
 {
     $sql = "SELECT * 
     FROM users 

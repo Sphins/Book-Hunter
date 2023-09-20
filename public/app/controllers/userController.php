@@ -16,9 +16,9 @@ function loginAction(\PDO $connexion)
 function submitAction(\PDO $connexion, array $data = null)
 {
     include '../app/models/userModel.php';
-    $user = UsersModel\findOneByPseudoPsw($connexion, $data);
+    $user = UsersModel\findOneByPseudo($connexion, $data);
 
-    if (password_verify($data['mdp'], $user['password'])) :
+    if ($user && password_verify($data['mdp'], $user['password'])) :
         // Vérifiez si le hachage nécessite une mise à jour
         if (password_needs_rehash($user['password'], PASSWORD_DEFAULT)) {
             $newHashedPassword = password_hash($data['mdp'], PASSWORD_DEFAULT);
@@ -27,8 +27,9 @@ function submitAction(\PDO $connexion, array $data = null)
         }
 
         $_SESSION['user'] = $user;
-        header('location: http://localhost/scripts_serveurs/Book-Hunter/admin/www/');
+
+        header('location: ' . ADMIN_ROOT);
     else :
-        header('location: http://localhost/scripts_serveurs/Book-Hunter/public/www/users/login');
+        header('location: ' . PUBLIC_ROOT . 'users/login');
     endif;
 }
