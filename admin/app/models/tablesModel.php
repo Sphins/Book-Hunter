@@ -57,6 +57,6 @@ class Model
 
         // Si la table référence exactement 2 autres tables et n'est pas (ou rarement) référencée par d'autres tables, 
         // alors il est probable que ce soit une table de liaison N:M.
-        return $referencesCount == 2 && $referencedCount <= 1; // J'utilise <= 1 pour permettre quelques exceptions rares.
+        return $referencesCount == 2 && $referencedCount == 0;
     }
 }

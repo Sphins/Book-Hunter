@@ -18,10 +18,11 @@ function showTable(\PDO $connexion, $selectedTable)
     $tables = $model->getTables();
     $selectedTable = $_GET['table'] ?? $tables[0];
     $data = $model->getTableData($selectedTable);
-
+    $title = $selectedTable;
     include '../app/views/tables/show.php';
 
-    global $content, $data;
+    global $content, $data, $title;
+    $title = $selectedTable;
     ob_start();
     include '../app/views/template/partials/_main.php';
     $content = ob_get_clean();

@@ -4,7 +4,7 @@ namespace App\Controllers\UserController;
 
 
 
-function dashboardAction(\PDO $connexion)
+function dashboardAction()
 {
     global $title, $content;
     $title = "Dashboard";

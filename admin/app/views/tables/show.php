@@ -1,7 +1,7 @@
 <?php
 include_once '../app/models/tablesModel.php';
 
-
+include_once '../app/views/tables/_addTablElementButton.php';
 ?>
 <table class="container mx-auto mt-12 p-6 bg-gray-700 rounded-lg shadow-lg text-center w-full">
     <thead>
@@ -19,8 +19,12 @@ include_once '../app/models/tablesModel.php';
                 <?php foreach ($row as $value) : ?>
                     <td class="border px-4 py-2"><?php echo $value; ?></td>
                 <?php endforeach; ?>
-                <td class="border px-4 py-2"><button class="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-2 rounded">Modifier</button></td>
-                <td class="border px-4 py-2"><button class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded">Supprimer</button></td>
+                <td class="border px-4 py-2">
+                    <a href="path_to_edit_item.php?id=<?php echo $row['id']; ?>" class="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-2 rounded">Modifier</a>
+                </td>
+                <td class="border px-4 py-2">
+                    <a href="path_to_delete_item.php?id=<?php echo $row['id']; ?>" class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded">Supprimer</a>
+                </td>
             </tr>
         <?php endforeach; ?>
     </tbody>

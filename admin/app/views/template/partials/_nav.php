@@ -4,11 +4,11 @@
         <div class="flex justify-between items-center py-4">
             <!-- Navbar Header -->
             <div class="flex items-center">
-                <a href="" class="text-white font-bold text-xl hover:text-gray-300 no-underline hover:no-underline">BACKOFFICE <?php echo PROJECT_NAME ?></a>
+                <a href="" class="text-gray-300 font-bold text-xl hover:text-white no-underline hover:no-underline">BACKOFFICE <?php echo PROJECT_NAME ?></a>
             </div>
-
+            <h1 class="text-white font-bold text-xl "><?php echo ucfirst($title); ?></h1>
             <div class="flex">
-                <a href="" class="text-gray-300 hover:text-white px-3 py-2 no-underline hover:no-underline">DASHBOARD</a>
+
                 <?php include_once '../app/views/tables/showMenuTables.php'; ?>
                 <a href="users/logout" class="text-gray-300 hover:text-red-700 px-3 py-2 ml-4 no-underline hover:no-underline">Logout</a>
             </div>

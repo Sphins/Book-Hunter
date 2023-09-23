@@ -12,4 +12,4 @@
 <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
 
 <!-- Custom styles for this template -->
-<link href="css/theme.css" rel="stylesheet" />
+<link href="www/css/theme.css" rel="stylesheet" />

@@ -30,14 +30,3 @@ function slugify($str, $delimiter = '-')
 
     return $str;
 }
-
-function redirectToTable($tableName)
-{
-    // if ($tableName === 'default') {
-    //     header('Location: ' . ADMIN_ROOT);
-    //     exit;
-    // } else {
-    //     header("Location: " . ADMIN_ROOT . "/show/table/" . $tableName);
-    //     exit;
-    // }
-}
