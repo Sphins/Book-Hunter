@@ -25,6 +25,14 @@ class Model
         return $tables;
     }
 
+    public function getAllTables()
+    {
+        $query = $this->connexion->prepare("SHOW TABLES");
+        $query->execute();
+        return $query->fetchAll(\PDO::FETCH_COLUMN);
+    }
+
+
     public function getTableData($tableName)
     {
         $query = $this->connexion->prepare("SELECT * FROM $tableName");
@@ -32,31 +40,72 @@ class Model
         return $query->fetchAll(\PDO::FETCH_ASSOC);
     }
 
+    public function getTableStructure($tableName)
+    {
+        $query = $this->connexion->prepare("DESCRIBE $tableName");
+        $query->execute();
+        return $query->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
+    public function getForeignKeys($tableName)
+    {
+        $query = $this->connexion->prepare("
+            SELECT COLUMN_NAME, REFERENCED_TABLE_NAME 
+            FROM INFORMATION_SCHEMA.KEY_COLUMN_USAGE 
+            WHERE TABLE_NAME = :tableName 
+            AND TABLE_SCHEMA = :databaseName
+            AND REFERENCED_TABLE_NAME IS NOT NULL;
+        ");
+        $query->execute([':databaseName' => DB_NAME, ':tableName' => $tableName]);
+        return $query->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
+    public function getDataFromForeingnKeys($foreignKey)
+    {
+        $data = [];
+        foreach ($foreignKey as $keyInfo) {
+            $tableName = $keyInfo['REFERENCED_TABLE_NAME'];
+            $data[$keyInfo['COLUMN_NAME']] = $this->getTableData($tableName);
+        }
+        return $data;
+    }
+
+    public function getMetadata($tableName)
+    {
+        $query = $this->connexion->prepare("SHOW TABLE STATUS WHERE Name = :tableName");
+        $query->execute([':tableName' => $tableName]);
+        $tableStatus = $query->fetch(\PDO::FETCH_ASSOC);
+        $comment = $tableStatus['Comment'];
+        if (!$comment) {
+            return null; // Retourne null si pas de commentaire
+        }
+        return json_decode($comment, true);
+    }
+
+    public function getNMData($metadata)
+    {
+        $relatedTable = $metadata['tables']['to']['name'];
+
+        $query = $this->connexion->prepare("SELECT * FROM $relatedTable");
+        $query->execute();
+        return $query->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
+
+
+
     protected function isManyToManyTable($tableName)
     {
-        // Combien de fois la table est-elle référencée par d'autres tables ?
-        $referencedCountQuery = $this->connexion->prepare("
-            SELECT COUNT(*)
-            FROM information_schema.KEY_COLUMN_USAGE
-            WHERE TABLE_SCHEMA = :databaseName
-            AND REFERENCED_TABLE_NAME = :tableName
+        $query = $this->connexion->prepare("
+            SELECT TABLE_COMMENT 
+            FROM INFORMATION_SCHEMA.TABLES 
+            WHERE TABLE_SCHEMA = :databaseName AND TABLE_NAME = :tableName
         ");
-        $referencedCountQuery->execute([':databaseName' => DB_NAME, ':tableName' => $tableName]);
-        $referencedCount = $referencedCountQuery->fetchColumn();
+        $query->execute([':databaseName' => DB_NAME, ':tableName' => $tableName]);
+        $comment = $query->fetchColumn();
 
-        // Combien de tables votre table référence-t-elle elle-même ?
-        $referencesCountQuery = $this->connexion->prepare("
-            SELECT COUNT(DISTINCT REFERENCED_TABLE_NAME)
-            FROM information_schema.KEY_COLUMN_USAGE
-            WHERE TABLE_SCHEMA = :databaseName
-            AND TABLE_NAME = :tableName
-            AND REFERENCED_TABLE_NAME IS NOT NULL
-        ");
-        $referencesCountQuery->execute([':databaseName' => DB_NAME, ':tableName' => $tableName]);
-        $referencesCount = $referencesCountQuery->fetchColumn();
+        $metadata = json_decode($comment, true);
 
-        // Si la table référence exactement 2 autres tables et n'est pas (ou rarement) référencée par d'autres tables, 
-        // alors il est probable que ce soit une table de liaison N:M.
-        return $referencesCount == 2 && $referencedCount == 0;
+        return isset($metadata['type']) && $metadata['type'] == 'nm';
     }
 }

@@ -3,10 +3,16 @@ RewriteEngine on
 #Route des Tables =============================================
 
 #SHOW TABLE
-#Pattern: show/table/{namOfTable}
+#Pattern: table/show/{namOfTable}
 #Target : index.php/?table=x
 
-RewriteRule ^show/table/(([a-z0-9][a-z0-9\-_]*)*[a-z0-9])$ index.php/?table=$1 [L]
+RewriteRule ^table/show/(([a-z0-9][a-z0-9\-_]*)*[a-z0-9])$ index.php/?table=show&name=$1 [L]
+
+#ADD new element to table
+#Pattern: table/add/{namOfTable}/form
+#Target : index.php/?table=form&name={namOfTable}
+
+RewriteRule ^table/form/(([a-z0-9][a-z0-9\-_]*)*[a-z0-9])$ index.php/?table=form&name=$1 [L]
 
 #Route de users =============================================
 

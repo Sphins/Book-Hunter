@@ -5,7 +5,7 @@
 if (isset($_GET['users'])) :
     include_once '../app/routers/users.php';
 
-//Routes des table
+//Routes des show table
 elseif (isset($_GET['table'])) :
     include_once '../app/routers/table.php';
 

@@ -6,11 +6,11 @@
             <div class="flex items-center">
                 <a href="" class="text-gray-300 font-bold text-xl hover:text-white no-underline hover:no-underline">BACKOFFICE <?php echo PROJECT_NAME ?></a>
             </div>
-            <h1 class="text-white font-bold text-xl "><?php echo ucfirst($title); ?></h1>
+            <h1 class="text-white font-bold text-xl "><?php echo ucfirst($title ?? 'Untitled'); ?></h1>
             <div class="flex">
 
                 <?php include_once '../app/views/tables/showMenuTables.php'; ?>
-                <a href="users/logout" class="text-gray-300 hover:text-red-700 px-3 py-2 ml-4 no-underline hover:no-underline">Logout</a>
+                <a href="www/users/logout" class="text-gray-300 hover:text-red-700 px-3 py-2 ml-4 no-underline hover:no-underline">Logout</a>
             </div>
         </div>
     </div>
